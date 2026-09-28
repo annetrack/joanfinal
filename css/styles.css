@@ -2738,3 +2738,57 @@ a.primary-cta{
   from { transform: translate3d(-50%, 0, 0); }
   to { transform: translate3d(0, 0, 0); }
 }
+
+
+
+/* =========================
+   TRUST STRIP - MOBILE FIX === SEP 28
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .trust-strip .wrap {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .trust-title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .trust-line {
+    max-width: 360px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .trust-logos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 16px;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    margin-top: 36px;
+  }
+
+  .trust-logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Center the last logo */
+  .trust-logo:last-child {
+    grid-column: 1 / -1;
+  }
+
+}
+
