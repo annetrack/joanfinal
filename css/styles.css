@@ -2743,52 +2743,36 @@ a.primary-cta{
 
 /* =========================
    TRUST STRIP - MOBILE FIX === SEP 28
+ 
+
+/* =========================
+   TRUST LOGOS - NARROW PHONES
    ========================= */
 
-@media (max-width: 768px) {
-
-  .trust-strip .wrap {
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .trust-title {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .trust-line {
-    max-width: 360px;
-    text-align: center;
-    line-height: 1.5;
-  }
+@media (max-width: 400px) {
 
   .trust-logos {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px 16px;
-    width: 100%;
-    justify-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
     align-items: center;
-    margin-top: 36px;
+    gap: 7px;
+    width: 100%;
   }
 
   .trust-logo {
-    width: 100%;
+    flex: 0 1 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    text-align: center;
+    gap: 3px;
     white-space: nowrap;
+    font-size: 9px;
   }
 
-  /* Center the last logo */
-  .trust-logo:last-child {
-    grid-column: 1 / -1;
+  .trust-icon {
+    flex-shrink: 0;
+    font-size: 10px;
   }
 
 }
-
