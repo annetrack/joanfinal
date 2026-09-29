@@ -1,88 +1,271 @@
- /* Voice Work interactions */
+ <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voice Work — Your Podcast. Professionally Managed.</title>
+<meta name="description" content="Professional podcast production, video and audio editing, publishing, show notes, and content repurposing by Voice Work.">
+<meta name="author" content="Voice Work">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#061b38">
+<link rel="canonical" href="https://joanfinal01.vercel.app/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Voice Work">
+<meta property="og:title" content="Voice Work — Your Podcast. Professionally Managed.">
+<meta property="og:description" content="Professional podcast production, video and audio editing, publishing, show notes, and content repurposing.">
+<meta property="og:url" content="https://joanfinal01.vercel.app/">
+<meta property="og:image" content="https://joanfinal01.vercel.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Voice Work — Your Podcast. Professionally Managed.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Voice Work — Your Podcast. Professionally Managed.">
+<meta name="twitter:description" content="Professional podcast production, editing, publishing, and content support.">
+<meta name="twitter:image" content="https://joanfinal01.vercel.app/assets/og-image.jpg">
+<meta name="twitter:image:alt" content="Voice Work — Your Podcast. Professionally Managed."><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-function stage(el, message) {
-  document.querySelectorAll('.stage').forEach(item => item.classList.remove('active'));
-  el.classList.add('active');
-  const commentary = document.querySelector('.vw-commentary');
-  if (commentary) commentary.textContent = message;
-}
+<!-- ==================== CONSOLIDATED STYLES ==================== -->
 
-function updateCalculator() {
-  const episodes = document.getElementById('ep');
-  const length = document.getElementById('ln');
-  const eo = document.getElementById('eo');
-  const lo = document.getElementById('lo');
-  const diy = document.getElementById('diy');
-  const client = document.getElementById('cl');
-  const saved = document.getElementById('sv');
-  if (!episodes || !length) return;
 
-  const e = Number(episodes.value);
-  const l = Number(length.value);
-  const diyHours = Math.round(e * (l / 60) * 8);
-  const clientHours = Math.max(1, Math.round(e * (l / 60)));
-  const savedHours = Math.max(0, diyHours - clientHours);
 
-  if (eo) eo.textContent = e;
-  if (lo) lo.textContent = `${l} min`;
-  if (diy) diy.textContent = `${diyHours} hrs / mo`;
-  if (client) client.textContent = `${clientHours} hrs / mo`;
-  if (saved) saved.textContent = `${savedHours} hrs / mo`;
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.querySelector('.mobile-menu-toggle');
-  const siteLinks = document.querySelector('#site-links');
 
-  if (menuToggle && siteLinks) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = menuToggle.classList.toggle('is-open');
-      siteLinks.classList.toggle('is-open', isOpen);
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-    });
 
-    siteLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.classList.remove('is-open');
-        siteLinks.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Open navigation menu');
-      });
-    });
-  }
 
-  const track = document.querySelector('.track');
-  const originalSet = track?.querySelector('.set');
-  if (track && originalSet && track.querySelectorAll('.set').length === 1) {
-    const clone = originalSet.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    clone.querySelectorAll('a').forEach(link => link.setAttribute('tabindex', '-1'));
-    track.appendChild(clone);
-  }
 
-  document.getElementById('ep')?.addEventListener('input', updateCalculator);
-  document.getElementById('ln')?.addEventListener('input', updateCalculator);
-  updateCalculator();
 
-  document.addEventListener('mousemove', event => {
-    document.documentElement.style.setProperty('--mx', `${event.clientX}px`);
-    document.documentElement.style.setProperty('--my', `${event.clientY}px`);
-  }, { passive: true });
-});
 
-function faqTab(button) {
-  const category = button.dataset.cat;
-  document.querySelectorAll('.faq-tab').forEach(tab => tab.classList.remove('active'));
-  document.querySelectorAll('.faq-group').forEach(group => group.classList.remove('active'));
-  button.classList.add('active');
-  document.querySelector(`.faq-group[data-cat="${category}"]`)?.classList.add('active');
-}
 
-function faq(button) {
-  const item = button.closest('.faqitem');
-  if (!item) return;
-  item.classList.toggle('open');
-  const icon = button.querySelector('span');
-  if (icon) icon.textContent = item.classList.contains('open') ? '⌃' : '⌄';
-}
+
+
+
+
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- ========================================================================
+     EDITABLE SITE SETTINGS — CTA
+     Change this one URL to update every primary CTA.
+     ======================================================================== -->
+
+
+<!-- =========================================================
+VOICE WORK CTA — EDIT THIS ONE LINE
+Your CTA currently goes to Calendly.com.
+When your exact Calendly booking link is ready, replace ONLY the URL below.
+========================================================= -->
+
+
+
+<!-- ==================== HEADER / NAVIGATION ==================== -->
+<nav><div class="logo"><span class="logo-word">VOICE WORK</span><span class="logo-sub">VIDEO AND AUDIO EDITING SERVICES</span></div><button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-links"><span></span><span></span><span></span></button><div class="links" id="site-links"><a href="#problem">Problem</a><a href="#services">Services</a><a href="#process">Process</a><a href="#proof">Proof</a><a href="#why">Why Voice Work</a><a href="#faq">FAQ</a></div><a class="btn primary-cta nav-cta" href="https://calendly.com/voicework-audioeditingservice/30min" target="_blank" rel="noopener">Let’s Talk →</a></nav>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero"><div class="wrap hero-copy"><span class="ey">FULL-SERVICE PODCAST PRODUCTION PARTNER</span><h1>Your Podcast<br><span class="grad">Professionally Managed</span></h1><p>Stop spending hours editing, publishing, and creating content after every episode. Voice Work takes care of podcast production, video editing, publishing, show notes, and content repurposing so you can stay focused on recording great conversations and growing your business.</p><div class="actions"><a class="btn primary-cta" href="https://calendly.com/voicework-audioeditingservice/30min" target="_blank" rel="noopener">Book a Discovery Call →</a><a class="btn ghost" href="#services">Explore Services ↓</a></div></div></header>
+<div class="flow"><div class="wrap"><div class="box">
+  <div class="engine-head">
+    <div class="engine-brand">
+      <div class="engine-name"><span>Voicework</span><em>Engine</em></div>
+      <div class="engine-rule"></div>
+    </div>
+    <div class="engine-copy">
+      <div class="engine-kicker">FULLY MANAGED PRODUCTION</div>
+      <div class="engine-intro">Voice Work handles the production, repurposing, scheduling, and publishing that turn raw recordings into a complete content system.</div>
+    </div>
+  </div>
+  <div class="grid5">
+    <div class="stage active" onclick="stage(this,'You record the conversation. That is the only production work we need from you.')">
+      <small>STEP 01</small><span aria-hidden="true" class="stage-icon"><svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"></path><path d="M19 11a7 7 0 0 1-14 0M12 18v3M8 21h8"></path></svg></span><strong>Podcast Episode</strong><small>Raw recording</small>
+    </div>
+    <div class="stage" onclick="stage(this,'We handle cleanup, mixing, video editing, captions, and polish.')">
+      <small>STEP 02</small><span aria-hidden="true" class="stage-icon"><svg viewBox="0 0 24 24"><path d="m14 4 6 6"></path><path d="m13 5-8 8 6 6 8-8"></path><path d="M5 19 3 21"></path><path d="m17 3 1.5-1.5M20.5 6.5 22 5"></path></svg></span><strong>Video Editing</strong><small>Production handled</small>
+    </div>
+    <div class="stage" onclick="stage(this,'One recording becomes a library of short-form assets ready for distribution.')">
+      <small>STEP 03</small><span aria-hidden="true" class="stage-icon"><svg viewBox="0 0 24 24"><rect height="16" rx="3" width="18" x="3" y="4"></rect><path d="m10 9 5 3-5 3V9Z"></path></svg></span><strong>Reels Created</strong><small>Hooks + captions</small>
+    </div>
+    <div class="stage" onclick="stage(this,'Your approved content is scheduled across the platforms that matter to your audience.')">
+      <small>STEP 04</small><span aria-hidden="true" class="stage-icon"><svg viewBox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M7 3v4M17 3v4M3 10h18M7 14h3M14 14h3M7 18h3"></path></svg></span><strong>Social Scheduled</strong><small>Approved</small>
+    </div>
+    <div class="stage" onclick="stage(this,'The finished episode and supporting content are published and working for your brand.')">
+      <small>STEP 05</small><span aria-hidden="true" class="stage-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9S14.5 18.5 12 21M12 3c-2.5 2.5-3.5 5.5-3.5 9S9.5 18.5 12 21"></path></svg></span><strong>Published<br>Everywhere</strong><small>Apple · Spotify · Socials</small>
+    </div>
+  </div>
+  <div class="detail" id="detail"><span class="detail-line"></span><span class="vw-commentary">You record the conversation. We handle the rest.</span><span class="detail-line"></span></div>
+</div></div></div>
+<section class="trust-strip" aria-label="Trusted by creators, coaches, consultants and growing businesses">
+  <div class="wrap">
+    <div class="trust-title"><span class="trust-line">TRUSTED BY CREATORS, COACHES, CONSULTANTS AND GROWING BUSINESSES</span></div>
+    <div class="trust-logos">
+      <div class="trust-logo"><span class="trust-icon">◉</span> CREATORS STUDIO</div>
+      <div class="trust-logo"><span class="trust-icon">⌁</span> GROWTH VENTURES</div>
+      <div class="trust-logo"><span class="trust-icon">♟</span> EXECUTIVE MEDIA</div>
+      <div class="trust-logo"><span class="trust-icon">●</span> THOUGHT LEADERS</div>
+      <div class="trust-logo"><span class="trust-icon">▮</span> AUTHOR PRESS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROBLEM ==================== -->
+<section id="problem" class="alt"><div class="wrap"><div class="problem"><div><span class="ey">THE POST-PRODUCTION TRAP</span><h2>Recording Is Only <span class="grad">20%</span> Of The Work</h2><p class="muted">Most podcasters love recording. Few enjoy everything that comes afterward.</p><div class="pain" aria-label="Post-production tasks Voice Work handles">
+<div class="pain-item"><span class="pain-icon" aria-hidden="true">×</span><span><b>Hours spent editing</b><small>Videos, audio, cuts and cleanup</small></span></div>
+<div class="pain-item"><span class="pain-icon" aria-hidden="true">×</span><span><b>Creating short-form clips</b><small>Reels, Shorts and social snippets</small></span></div>
+<div class="pain-item"><span class="pain-icon" aria-hidden="true">×</span><span><b>Writing SEO sections</b><small>Titles, descriptions and show notes</small></span></div>
+<div class="pain-item"><span class="pain-icon" aria-hidden="true">×</span><span><b>Uploading everywhere</b><small>Publishing and distribution</small></span></div>
+<div class="pain-item"><span class="pain-icon" aria-hidden="true">×</span><span><b>Managing podcast hosting</b><small>Schedules, metadata and updates</small></span></div>
+<div class="pain-item"><span class="pain-icon" aria-hidden="true">×</span><span><b>Keeping social active</b><small>Captions, posts and consistency</small></span></div>
+</div><p class="muted">It quickly becomes overwhelming. That's where Voice Work comes in.</p></div><div class="calc"><span class="ey">TIME RECOVERY CALCULATOR</span><label>Episodes per month <output id="eo">4</output></label><input id="ep" type="range" min="1" max="12" value="4"><label>Episode length <output id="lo">60 min</output></label><input id="ln" type="range" min="20" max="120" step="10" value="60"><div class="metric">DIY production time <b id="diy">32 hrs / mo</b></div><div class="metric">Voice Work client time <b id="cl">4 hrs / mo</b></div><div class="metric big"><b id="sv">28 hrs / mo</b></div><a class="btn primary-cta" style="width:100%" href="https://calendly.com/voicework-audioeditingservice/30min" target="_blank" rel="noopener">Reclaim Your Time →</a></div></div></div></section>
+
+<!-- ==================== SERVICES ==================== -->
+<section id="services"><div class="wrap"><div class="head"><span class="ey">EVERYTHING AFTER RECORDING</span><h2>Everything After Recording, <span class="grad">Handled</span></h2><p>Whether you publish weekly or monthly, Voice Work manages your content from raw recording to published episodes and promotional content.</p></div><div class="cards"><div class="card"><h3>🎥 Video Podcast Editing</h3><p>Professional podcast video editing that keeps your audience watching.</p><ul><li>Multi-camera editing & switching</li><li>Audio cleanup & enhancement</li><li>Dynamic captions & subtitles</li><li>B-roll, graphics & branded overlays</li></ul></div><div class="card"><h3>🎙️ Podcast Publishing & Management</h3><p>Take your podcast from finished recording to published episode.</p><ul><li>Podcast upload & publishing</li><li>Episode titles & descriptions</li><li>Metadata & episode optimization</li><li>Scheduling & distribution management</li></ul></div><div class="card"><h3>✂️ Content Repurposing</h3><p>Turn one podcast episode into weeks of high-value content.</p><ul><li>Short-form videos & Reels</li><li>YouTube Shorts & social clips</li><li>Content hooks & captions</li><li>Platform-ready content</li></ul></div><div class="card"><h3>📲 Social Media Publishing</h3><p>Stay consistent across your social platforms without doing it all yourself.</p><ul><li>Instagram & Facebook publishing</li><li>LinkedIn content publishing</li><li>YouTube Shorts scheduling</li><li>Captions, hashtags & CTAs</li></ul></div><div class="card"><h3>🔎 Podcast SEO & Show Notes</h3><p>Make your episodes easier to discover through search.</p><ul><li>SEO-optimized episode titles</li><li>Show notes & key takeaways</li><li>Keywords & searchable descriptions</li><li>Resources, links & CTAs</li></ul></div><div class="card"><h3>🤖 AI Audiobook-to-Podcast</h3><p>Transform your existing audiobook into an engaging podcast series.</p><ul><li>Audiobook content repurposing</li><li>Episode structure & segmentation</li><li>AI-assisted production workflow</li><li>Podcast-ready audio & publishing</li></ul></div></div></div></section>
+
+<!-- ==================== PROCESS ==================== -->
+<section id="process" class="alt"><div class="wrap"><div class="head"><span class="ey">THE STREAMLINED WORKFLOW</span><h2>A Simple <span class="grad">Process</span></h2><p>Four seamless steps to elevate your podcast without lifting a finger post-recording.</p></div><div class="process-shell"><div class="process-line"></div><div class="process"><div class="step"><div class="num">01</div><h3>You Record</h3><p>Focus on great conversations. Do what you do best.</p></div><div class="step"><div class="num">02</div><h3>Upload Your Files</h3><p>Drop your raw audio and video into your project cloud.</p></div><div class="step"><div class="num">03</div><h3>We Handle Everything</h3><p>Editing, publishing, repurposing and scheduling.</p></div><div class="step"><div class="num">04</div><h3>Your Podcast Grows</h3><p>Your content works consistently across every platform.</p></div></div></div></section>
+
+<!-- ==================== PROOF ==================== -->
+<section id="proof" class="proof">
+  <div class="head">
+    <span class="ey">CLIENT SUCCESS</span>
+    <h2>The Work Speaks <span class="grad">For Itself</span></h2>
+    <p>Recent episodes managed end-to-end by the Voice Work production team.</p>
+  </div>
+  <div class="wrap">
+    <div class="marquee" aria-label="Client success podcast episodes">
+      <div class="track">
+        <div class="set">
+          <article class="video-card">
+            <a class="video-thumb" href="https://youtu.be/ZYPE3QcqPdg?si=oEpWcPtJHLEVOQwS" target="_blank" rel="noopener" aria-label="Watch A Fond Farewell and the Evolution to Childfree on YouTube">
+              <img src="https://img.youtube.com/vi/ZYPE3QcqPdg/hqdefault.jpg" alt="A Fond Farewell and the Evolution to Childfree thumbnail" loading="lazy">
+              <span class="youtube-badge">YouTube</span>
+            </a>
+            <h3>A Fond Farewell and the Evolution to Childfree</h3>
+            <div class="platform-links">
+              <a href="https://youtu.be/ZYPE3QcqPdg?si=oEpWcPtJHLEVOQwS" target="_blank" rel="noopener">▶ <span>Watch</span></a>
+              <a href="https://open.spotify.com/episode/6Q42hVawW4dep16W8f3toY?si=4b34bd1844884c57" target="_blank" rel="noopener">● <span>Listen</span></a>
+              <a href="https://podcasts.apple.com/us/podcast/a-fond-farewell-and-the-evolution-to-childfree/id1637482639?i=1000741664126" target="_blank" rel="noopener">◉ <span>Listen</span></a>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <a class="video-thumb" href="https://www.youtube.com/watch?v=dN7tqAdqzBM" target="_blank" rel="noopener" aria-label="Watch James McPartland on Rewriting Your Story on YouTube">
+              <img src="https://img.youtube.com/vi/dN7tqAdqzBM/hqdefault.jpg" alt="James McPartland on Rewriting Your Story thumbnail" loading="lazy">
+              <span class="youtube-badge">YouTube</span>
+            </a>
+            <h3>James McPartland on Rewriting Your Story</h3>
+            <div class="platform-links">
+              <a href="https://www.youtube.com/watch?v=dN7tqAdqzBM" target="_blank" rel="noopener">▶ <span>Watch</span></a>
+              <a href="https://open.spotify.com/episode/0KXaFq1qTohrbOQbXckNHY?si=b7aa16477c30473a" target="_blank" rel="noopener">● <span>Listen</span></a>
+              <a href="https://podcasts.apple.com/us/podcast/james-mcpartland-on-rewriting-your-story-how-to-take/id1701141731?i=1000752865889" target="_blank" rel="noopener">◉ <span>Listen</span></a>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <a class="video-thumb" href="https://www.youtube.com/watch?v=Bt91ASkNs5s" target="_blank" rel="noopener" aria-label="Watch The Cathedral Builders on YouTube">
+              <img src="https://img.youtube.com/vi/Bt91ASkNs5s/hqdefault.jpg" alt="The Cathedral Builders thumbnail" loading="lazy">
+              <span class="youtube-badge">YouTube</span>
+            </a>
+            <h3>The Cathedral Builders</h3>
+            <div class="platform-links">
+              <a href="https://www.youtube.com/watch?v=Bt91ASkNs5s" target="_blank" rel="noopener">▶ <span>Watch</span></a>
+              <a href="https://open.spotify.com/episode/36dkCDw23OA3rzZRtzyGoG?si=011aa565a2224f8e" target="_blank" rel="noopener">● <span>Listen</span></a>
+              <a href="https://podcasts.apple.com/us/podcast/the-cathedral-builders/id1699229023?i=1000776122900" target="_blank" rel="noopener">◉ <span>Listen</span></a>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <a class="video-thumb" href="https://www.youtube.com/watch?v=BhdUNiINAOA" target="_blank" rel="noopener" aria-label="Watch Are Wheelchairs Hurting Children's Hips on YouTube">
+              <img src="https://img.youtube.com/vi/BhdUNiINAOA/hqdefault.jpg" alt="Are Wheelchairs Hurting Children's Hips thumbnail" loading="lazy">
+              <span class="youtube-badge">YouTube</span>
+            </a>
+            <h3>Are Wheelchairs Hurting Children's Hips?</h3>
+            <div class="platform-links">
+              <a href="https://www.youtube.com/watch?v=BhdUNiINAOA" target="_blank" rel="noopener">▶ <span>Watch</span></a>
+              <a href="https://open.spotify.com/episode/7wiuVucLhR5KXZWfbCrz8w?si=34321bb083bc443e" target="_blank" rel="noopener">● <span>Listen</span></a>
+              <a href="https://podcasts.apple.com/us/podcast/are-wheelchairs-hurting-childrens-hips-s2-ep1-with-dr/id1819677329?i=1000771951218" target="_blank" rel="noopener">◉ <span>Listen</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <p class="proof-note">Watch, listen, or follow on your favorite platform</p>
+  </div>
+</section>
+<section class="systems"><div class="wrap"><div class="head"><span class="ey">SYSTEMS &amp; EXECUTION</span><h2>Built on <span class="grad">Professional Systems</span>, Not Empty Promises</h2><p>At Voice Work, we believe trust is earned through consistent execution. Our focus is simple: deliver polished episodes, streamline your workflow, and help every podcast create more value from every recording.</p></div><div class="cards"><div class="card"><h3>Professional Editing</h3><p>Every episode is carefully edited for clear audio, engaging visuals, and a polished viewing experience.</p></div><div class="card"><h3>Content That Works Harder</h3><p>One podcast recording can become multiple pieces of content for YouTube, Instagram, TikTok, LinkedIn, Facebook, and more.</p></div><div class="card"><h3>Consistent Publishing</h3><p>Never worry about missed uploads or inconsistent schedules. We keep your podcast moving smoothly forward.</p></div><div class="card"><h3>AI-Powered Workflows</h3><p>Modern AI tools help us speed up repetitive tasks while maintaining quality, allowing you to publish faster without sacrificing professionalism.</p></div><div class="card"><h3>Organized Production</h3><p>From raw recordings to published episodes, every project follows a structured workflow to ensure consistency and reliability.</p></div><div class="card"><h3>Personal Partnership</h3><p>You're not hiring another freelancer—you're gaining a dedicated post-podcast management partner invested in helping your content succeed.</p></div></div>
+<div class="commitment-box commitment-reference">
+  <div class="commitment-eyebrow">OUR CORE PROMISE</div>
+  <h2>The <span class="grad">Voice Work Commitment</span></h2>
+  <p>Building a successful podcast takes consistency. Voice Work exists to remove the technical workload so you can spend more time recording, connecting with your audience, and growing your brand.</p>
+  <div class="commitment-divider"></div>
+  <p class="commitment-line">“Let the quality of the work speak louder than marketing claims.”</p>
+</div>
+</div></section><section class="testimonials"><div class="wrap"><div class="head"><span class="ey">CLIENT TESTIMONIALS</span><h2>Trusted by Creators Who <span class="grad">Care About Their Work</span></h2></div><div class="quotes">
+<div class="quote"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Beyond her technical skills, Joan has been a reliable and trustworthy collaborator. Despite our limited interactions outside of work and her initial interview, Joan has always delivered exceptional results and has proven herself to be someone I can depend on without hesitation. I have no doubt that Joan will excel in any future endeavors she pursues. Her passion, hard work ethic, and her ability to enhance content are truly commendable. I wholeheartedly recommend Joan, and I am confident that she will bring the same level of dedication and expertise to your organization as she has to ours.”</p><b>Michael Rearden</b><small>Founder of Reven Concepts</small></div>
+<div class="quote"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Joan has been handling our video podcast editing for at least six months now. She's very easy to work with, does quick &amp; efficient work, &amp; makes it substantially easier for me as a podcast host. Along with the podcast, she also makes the quick teaser reels for social media which is a tremendous help. If you're looking for someone to edit your podcast, I'd recommend her!”</p><b>Bri Conn</b><small>Host on the Childfree Wealth Podcast</small></div>
+<div class="quote"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Within the first moments of working with Joan, I could see that she uses her initiative in ways that I can rarely find elsewhere. She is hard-working, flexible, have great attention to detail, and has a thirst to learn on the job. Joan is also dependable and willing to receive feedback in a balanced and professional way. I am hoping to continue to employ Joan for as long as possible and I highly recommend hiring her for your needs.”</p><b>Charlie Baxter</b><small>Host of The British English Podcast</small></div>
+<div class="quote"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Joan went above and beyond and offered help even without me asking. I'm new to podcasting and needed help with an episode that had a lot of background noise. She assessed it, gave a sample, and even took a short video of how this problem can be solved. She gave me action steps for me to avoid the same mistakes with guests in the future. The following recordings sounded so much better and really communicated the impression I wanted. She definitely knows what she's doing.”</p><b>Patty Roxas Chua</b><small>Personal Branding for Coaches &amp; Consultants</small></div>
+<div class="quote"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Joan edited a podcast episode for me. I appreciate her on-time delivery. She thoroughly read my instructions and delivered the final cut accordingly. My working experience has been amazing with Joan. Thus, I highly recommend her services to anyone reading this testimonial right now.”</p><b>Khushi K.</b><small>Podcaster · The Women Stories</small></div>
+</div></div></section>
+<section class="about"><div class="wrap"><div class="about-grid"><div class="about-photo"><div class="about-photo-inner"><img src="assets/joan-headshot.png" alt="Joan, founder of Voice Work"></div></div><div class="about-copy"><span class="ey">ABOUT JOAN</span><h2>Meet Joan<br><span class="grad">The Person Behind Voice Work</span></h2><p class="muted">I’m Joan, the person behind Voice Work. I help creators, coaches, consultants, authors and businesses take the production work off their plate — from editing and publishing to turning one recording into content that keeps working.</p><p class="muted">The goal isn't simply to deliver edited files. Voice Work is built to remove the technical workload so you can spend more time recording, connecting with your audience, and growing your brand.</p><div class="about-points"><span>✓ Detail-oriented</span><span>✓ Reliable partner</span><span>✓ Systems-driven</span><span>✓ Committed to your success</span></div></div></div></div></section>
+<section class="alt"><div class="wrap"><div class="head"><span class="ey">THE TRANSFORMATION</span><h2>Before vs <span class="grad">After Voice Work</span></h2><p>See what shifts when you transition from DIY burnout to hands-free production.</p></div><div class="twocol"><div class="before"><h3>● Before Voice Work</h3><div class="label">High Friction</div><ul><li><b>Editing late at night:</b> Hours spent cutting timeline gaps instead of relaxing or working on high-value business.</li><li><b>Missed publishing dates:</b> Inconsistent schedules that confuse listeners and hurt algorithm rankings.</li><li><b>No social media consistency:</b> Great podcast nuggets stay buried inside long recordings.</li><li><b>Hours spent creating clips:</b> Struggling with aspect ratios, subtitles, and formatting for different apps.</li><li><b>Podcast growth feels slow:</b> Burnout sets in before momentum can take hold.</li></ul></div><div class="after"><h3>● After Voice Work</h3><div class="label">Effortless Growth</div><ul><li><b>Consistent publishing:</b> Your episodes drop like clockwork every week without stress.</li><li><b>Professional content every week:</b> Broadcast-quality video, polished audio, and custom graphics.</li><li><b>More time to record:</b> Focus 100% of your energy on booking top guests and having great conversations.</li><li><b>Better audience engagement:</b> Short-form Reels and Shorts drive steady organic traffic back to main episodes.</li><li><b>Peace of mind:</b> Knowing a dedicated professional team is handling every single detail.</li></ul></div></div></div></section>
+
+<!-- ==================== WHY VOICE WORK ==================== -->
+<section class="alt" id="why"><div class="wrap"><div class="head"><span class="ey">THE VOICE WORK DIFFERENCE</span><h2>Why Voice Work <span class="grad">Works Differently</span></h2></div><div class="mini-grid"><div class="mini"><h3><span class="mini-icon gold" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><span>Save Time</span></h3><p>Get the production work off your plate so your recording time stays focused on the conversation.</p></div><div class="mini"><h3><span class="mini-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16M8 13h3M13 13h3M8 17h3"/></svg></span><span>Stay Consistent</span></h3><p>Your podcast keeps moving on a reliable publishing rhythm without you managing every detail.</p></div><div class="mini"><h3><span class="mini-icon violet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.2 5.3L20 10l-5.8 1.7L12 17l-2.2-5.3L4 10l5.8-1.7L12 3Z"/><path d="m19 16 .8 1.9L22 19l-2.2.9L19 22l-.8-2.1L16 19l2.2-.9L19 16Z"/></svg></span><span>Professional Quality</span></h3><p>Every episode is edited and prepared to reflect the quality of your brand.</p></div><div class="mini"><h3><span class="mini-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m10 8 5 4-5 4V8Z"/></svg></span><span>Content That Works Harder</span></h3><p>One recording becomes episodes, clips, show notes and social-ready assets.</p></div><div class="mini"><h3><span class="mini-icon violet" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/><path d="M10 7h3a3 3 0 0 1 3 3v4M14 17h-3a3 3 0 0 1-3-3v-4"/></svg></span><span>Systems, Not Scrambling</span></h3><p>A repeatable production workflow replaces the last-minute editing and publishing scramble.</p></div><div class="mini"><h3><span class="mini-icon gold" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3.5 20c.4-3.2 2.4-5 5.5-5s5.1 1.8 5.5 5M14 16c2.9-.5 5.2.9 6 4"/></svg></span><span>A Production Partner</span></h3><p>You get someone thinking beyond the edit and helping keep the whole content operation moving.</p></div></div></div></section>
+
+<!-- ==================== FAQ ==================== -->
+<section id="faq" class="alt"><div class="wrap"><div class="head"><span class="ey">QUESTIONS, ANSWERED</span><h2>Frequently Asked <span class="grad">Questions</span></h2><p class="faq-intro">Managing a podcast involves much more than editing. A podcast manager can handle the production, publishing, SEO, repurposing, and content workflow so you can spend more time creating, serving your audience, and growing your business.</p></div><div class="faq">
+<div class="faq-tabs" role="tablist">
+<button class="faq-tab active" data-cat="pm" onclick="faqTab(this)">🎙️ Podcast Management</button>
+<button class="faq-tab" data-cat="ec" onclick="faqTab(this)">🎬 Editing & Content</button>
+<button class="faq-tab" data-cat="seo" onclick="faqTab(this)">🔎 SEO & Content Growth</button>
+</div>
+<div class="faq-group active" data-cat="pm">
+<div class="faqitem open"><button class="q" onclick="faq(this)">Can you manage my podcast from start to finish? <span>⌃</span></button><div class="ans">Yes. From raw recording to published episode, Voice Work handles editing, publishing, show notes and scheduling as one continuous workflow.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Can you publish my podcast episodes? <span>⌄</span></button><div class="ans">Yes. We handle uploads, metadata, tags, artwork and scheduling through your preferred hosting platform.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Which podcast platforms do you work with? <span>⌄</span></button><div class="ans">We publish and manage episodes across YouTube, Spotify, Apple Podcasts and most major hosting platforms.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">What do I need to provide to get started? <span>⌄</span></button><div class="ans">Just your raw audio or video recording. Drop it into your project folder and we take it from there.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">How does your podcast management process work? <span>⌄</span></button><div class="ans">You record, we edit, publish and repurpose. Four simple steps with no back-and-forth required on your end.</div></div>
+</div>
+<div class="faq-group" data-cat="ec">
+<div class="faqitem open"><button class="q" onclick="faq(this)">Do you edit video podcasts? <span>⌃</span></button><div class="ans">Yes. We professionally edit video podcasts with branding, dynamic captions, transitions, multi-camera switching, color correction and polished visuals.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Do you create social media content from my podcast? <span>⌄</span></button><div class="ans">Absolutely. Episodes can be repurposed into short-form videos, clips, quote graphics and optimized captions.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Can you create thumbnails and graphics? <span>⌄</span></button><div class="ans">Yes. We design episode thumbnails, branded overlays and graphics that match your show's look.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Can you work with my existing branding? <span>⌄</span></button><div class="ans">Yes. We build every edit, thumbnail and graphic around your existing brand colors, fonts and style.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Can you turn my audiobook into a podcast? <span>⌄</span></button><div class="ans">Yes. AI-assisted workflows can help turn existing audiobook content into a structured podcast series.</div></div>
+</div>
+<div class="faq-group" data-cat="seo">
+<div class="faqitem open"><button class="q" onclick="faq(this)">Do you provide podcast SEO? <span>⌃</span></button><div class="ans">Yes. We optimize episode titles, descriptions and keywords to help your show get discovered.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Can you write my show notes and episode descriptions? <span>⌄</span></button><div class="ans">Yes. We write show notes, key takeaways and searchable descriptions for every episode.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Can you help me create a content strategy? <span>⌄</span></button><div class="ans">Yes. We help plan how each episode turns into weeks of supporting content across platforms.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Do you handle social media publishing? <span>⌄</span></button><div class="ans">Yes. We schedule and publish content across Instagram, Facebook, LinkedIn and YouTube Shorts.</div></div>
+<div class="faqitem"><button class="q" onclick="faq(this)">Who do you work with? <span>⌄</span></button><div class="ans">Creators, coaches, consultants, authors and businesses that want consistent publishing without managing post-production themselves.</div></div>
+</div>
+</div></div></section>
+
+<!-- ==================== FINAL CTA ==================== -->
+<section class="cta"><div class="wrap"><div class="box"><h2>Focus On Recording<br><span class="grad">We'll Handle The Rest</span></h2><p class="muted">Every episode deserves professional editing, strategic publishing and content that keeps working long after you stop recording.</p><a class="btn primary-cta" href="https://calendly.com/voicework-audioeditingservice/30min" target="_blank" rel="noopener">Book Your Discovery Call →</a></div></div></section>
+<!-- ==================== FOOTER ==================== -->
+<footer><div class="wrap"><div class="footer-grid"><div><div class="logo"><span class="logo-word">VOICE WORK</span><span class="logo-sub">VIDEO AND AUDIO EDITING SERVICES</span></div></div><div class="socials" aria-label="Social links">
+  <a class="social" href="http://linkedin.com/in/joan-peconcillo-758171b6/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+  <a class="social" href="https://www.facebook.com/joan.peconcillo.92" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+  <a class="social" href="https://www.instagram.com/vajoanpeconcillo?stkn=MWQ4cGJjNmQxYXkydQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+</div><div class="credit"></div></div><div style="display:flex;justify-content:space-between;gap:16px;margin-top:25px;padding-top:16px;border-top:1px solid var(--line)"><span>© 2026 Voice Work Agency. All rights reserved.</span><span>Premium Post-Podcast Production Management.</span></div></div></footer>
+</div>
+
+<!-- ==================== SITE SCRIPTS ==================== -->
+
+
+
+
+
+
+
+
+
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>
