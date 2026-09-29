@@ -1,4 +1,4 @@
-/* ============================================================================
+ /* ============================================================================
    VOICE WORK — CLEAN RESPONSIVE STYLESHEET
    ---------------------------------------------------------------------------
    Purpose:
@@ -1483,6 +1483,46 @@ footer {
   font-weight: 700;
 }
 
+
+/* =========================
+   MOBILE MENU TOGGLE
+   ========================= */
+.mobile-menu-toggle {
+  display: none;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  padding: 9px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  background: rgba(255,255,255,.045);
+  color: var(--text);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 17px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.mobile-menu-toggle:hover {
+  border-color: rgba(244,194,83,.5);
+  background: rgba(255,255,255,.07);
+}
+
+.mobile-menu-toggle.is-open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.mobile-menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+.mobile-menu-toggle.is-open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
 /* =========================
    TABLET
    ========================= */
@@ -1613,10 +1653,45 @@ footer {
     font-size: 7px;
   }
 
-  /* The desktop navigation is intentionally hidden on small screens.
-     The CTA remains available instead of squeezing six links into a phone. */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
   .links {
     display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 14px;
+    right: 14px;
+    z-index: 30;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 8px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 14px;
+    background: rgba(7, 31, 54, .94);
+    box-shadow: 0 18px 40px rgba(0,0,0,.28);
+    backdrop-filter: blur(18px);
+  }
+
+  .links.is-open {
+    display: flex;
+  }
+
+  .links a {
+    display: block;
+    padding: 11px 12px;
+    border-radius: 9px;
+    font-size: 12px;
+  }
+
+  .links a:hover {
+    background: rgba(255,255,255,.06);
+  }
+
+  nav .nav-cta {
+    white-space: nowrap;
   }
 
   .nav-cta {
