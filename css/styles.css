@@ -2888,9 +2888,9 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
 
 
 
-/* =========================================================
-   PREMIUM VIOLET CURSOR FLASHLIGHT - SEP 30
-   ========================================================= */
+/* =========================================
+   PREMIUM VIOLET AUDIO FLASHLIGHT
+   ========================================= */
 
 body::after {
   content: "";
@@ -2901,11 +2901,12 @@ body::after {
 
   background:
     radial-gradient(
-      circle 220px at var(--mx, 50%) var(--my, 30%),
-      rgba(167, 139, 250, 0.16) 0%,
-      rgba(139, 92, 246, 0.10) 22%,
-      rgba(109, 76, 190, 0.045) 45%,
-      transparent 72%
+      circle 300px at var(--mx, 50%) var(--my, 30%),
+      rgba(167, 139, 250, 0.22) 0%,
+      rgba(139, 92, 246, 0.14) 20%,
+      rgba(109, 76, 190, 0.08) 38%,
+      rgba(76, 29, 149, 0.035) 55%,
+      transparent 75%
     );
 
   mix-blend-mode: screen;
@@ -2913,7 +2914,6 @@ body::after {
   transition: opacity 0.25s ease;
 }
 
-/* Turn the flashlight on when the cursor is inside the page */
 body:hover::after {
   opacity: 1;
 }
