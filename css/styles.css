@@ -2841,28 +2841,47 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
 
 
 
-/* =========================================
-   PROOF MARQUEE — SLOWER + CENTERED LOGOS
-   ========================================= */
 
+
+/* =========================================================
+   FINAL PROOF MARQUEE + PLATFORM LOGO FIX
+   ========================================================= */
+
+/* SLOWER LEFT → RIGHT MARQUEE */
 #proof .track {
-  animation-duration: 20s !important;
+  animation-duration: 45s !important;
 }
 
+/* CENTER THE 3 PLATFORM LOGOS */
 #proof .platform-links {
-  display: flex;
+  display: flex !important;
   justify-content: center !important;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  padding: 0 16px;
-  box-sizing: border-box;
+  align-items: center !important;
+  gap: 14px !important;
+  width: 100% !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+  flex-wrap: nowrap !important;
 }
 
+/* Prevent the mobile CSS from stretching the links */
 #proof .platform-links a {
-  flex: 0 0 32px;
+  flex: 0 0 32px !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-
+/* Make the actual SVG logos fit neatly */
+#proof .platform-links svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+}
 
 
