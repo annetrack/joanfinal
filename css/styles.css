@@ -916,7 +916,7 @@ section {
 .track {
   display: flex;
   width: max-content;
-  animation: voicework-marquee-right 34s linear infinite;
+  animation: voicework-marquee-right 20s linear infinite;
   will-change: transform;
 }
 
