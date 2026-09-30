@@ -515,7 +515,7 @@ nav {
 }
 
 .detail-line {
-  width: 120px;
+  width: 100px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(177,201,219,.4));
 }
