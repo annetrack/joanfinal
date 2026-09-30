@@ -1,5 +1,6 @@
 /* ============================================================================
-   VOICE WORK — CLEAN RESPONSIVE STYLESHEET
+  CREATED FOR VOICE WORK — CLEAN RESPONSIVE STYLESHEET created by Digitally Anne  https://www.michelleannalopez.com/
+  
    ---------------------------------------------------------------------------
    Purpose:
    - Keep the existing Voice Work visual direction.
@@ -2844,7 +2845,7 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
 
 
 /* =========================================================
-   FINAL PROOF MARQUEE + PLATFORM LOGO FIX
+   FINAL PROOF MARQUEE + PLATFORM LOGO FIX - SEP 30
    ========================================================= */
 
 /* SLOWER LEFT → RIGHT MARQUEE */
@@ -2885,3 +2886,34 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
 }
 
 
+
+
+/* =========================================================
+   PREMIUM VIOLET CURSOR FLASHLIGHT - SEP 30
+   ========================================================= */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle 220px at var(--mx, 50%) var(--my, 30%),
+      rgba(167, 139, 250, 0.16) 0%,
+      rgba(139, 92, 246, 0.10) 22%,
+      rgba(109, 76, 190, 0.045) 45%,
+      transparent 72%
+    );
+
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* Turn the flashlight on when the cursor is inside the page */
+body:hover::after {
+  opacity: 1;
+}
