@@ -2838,3 +2838,31 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
     animation: none !important;
   }
 }
+
+
+
+/* =========================================
+   PROOF MARQUEE — SLOWER + CENTERED LOGOS
+   ========================================= */
+
+#proof .track {
+  animation-duration: 20s !important;
+}
+
+#proof .platform-links {
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+#proof .platform-links a {
+  flex: 0 0 32px;
+}
+
+
+
+
