@@ -1,6 +1,4 @@
- 
-
- /* ============================================================================
+/* ============================================================================
    VOICE WORK — CLEAN RESPONSIVE STYLESHEET
    ---------------------------------------------------------------------------
    Purpose:
@@ -916,7 +914,7 @@ section {
 .track {
   display: flex;
   width: max-content;
-  animation: voicework-marquee-right 15s linear infinite;
+  animation: voicework-marquee-right 34s linear infinite;
   will-change: transform;
 }
 
@@ -2135,7 +2133,7 @@ footer {
   width: max-content;
   display: flex;
   align-items: stretch;
-  animation: voicework-marquee-right 38s linear infinite;
+  animation: voicework-marquee-right 10s linear infinite;
 }
 
 .set {
@@ -2774,3 +2772,69 @@ PY
 rm -f /mnt/data/voice-work-final-client-polish.zip
 cd /mnt/data/voice-work-build && zip -qr /mnt/data/voice-work-final-client-polish.zip voice-work-final
 ls -lh /mnt/data/voice-work-final-client-polish.zip
+
+
+/* =========================================================
+   VOICE WORK — PLATFORM LOGOS + 10s MARQUEE
+   Logo-only treatment for YouTube / Spotify / Apple Podcasts.
+   ========================================================= */
+.platform-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.platform-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #b9c6d3;
+  transition: transform .2s ease, color .2s ease, background .2s ease;
+}
+
+.platform-links a:hover {
+  transform: translateY(-2px);
+  border-color: transparent;
+  background: rgba(244,203,105,.08);
+  color: #f4cb69;
+}
+
+.platform-links .platform-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+.platform-links a:first-child {
+  color: #e7edf4;
+}
+
+.platform-links a:first-child::first-letter {
+  color: inherit;
+}
+
+@media (max-width: 640px) {
+  .platform-links {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .platform-links a {
+    flex: 0 0 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #proof .track {
+    animation: none !important;
+  }
+}
