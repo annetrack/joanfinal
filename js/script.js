@@ -31,18 +31,67 @@ function updateCalculator() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* =========================
+     MOBILE NAVIGATION
+     ========================= */
+
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const siteLinks = document.querySelector('#site-links');
+
+  if (menuToggle && siteLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.classList.toggle('is-open');
+      siteLinks.classList.toggle('is-open', isOpen);
+
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Close navigation menu' : 'Open navigation menu'
+      );
+    });
+
+    siteLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('is-open');
+        siteLinks.classList.remove('is-open');
+
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+  }
+
+  /* =========================
+     PODCAST MARQUEE
+     ========================= */
+
   const track = document.querySelector('.track');
   const originalSet = track?.querySelector('.set');
+
   if (track && originalSet && track.querySelectorAll('.set').length === 1) {
     const clone = originalSet.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
-    clone.querySelectorAll('a').forEach(link => link.setAttribute('tabindex', '-1'));
+
+    clone.querySelectorAll('a').forEach(link => {
+      link.setAttribute('tabindex', '-1');
+    });
+
     track.appendChild(clone);
   }
 
+  /* =========================
+     CALCULATOR
+     ========================= */
+
   document.getElementById('ep')?.addEventListener('input', updateCalculator);
   document.getElementById('ln')?.addEventListener('input', updateCalculator);
+
   updateCalculator();
+
+  /* =========================
+     CURSOR FLASHLIGHT
+     ========================= */
 
   document.addEventListener('mousemove', event => {
     document.documentElement.style.setProperty('--mx', `${event.clientX}px`);
@@ -52,16 +101,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function faqTab(button) {
   const category = button.dataset.cat;
-  document.querySelectorAll('.faq-tab').forEach(tab => tab.classList.remove('active'));
-  document.querySelectorAll('.faq-group').forEach(group => group.classList.remove('active'));
+
+  document.querySelectorAll('.faq-tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+
+  document.querySelectorAll('.faq-group').forEach(group => {
+    group.classList.remove('active');
+  });
+
   button.classList.add('active');
-  document.querySelector(`.faq-group[data-cat="${category}"]`)?.classList.add('active');
+
+  document
+    .querySelector(`.faq-group[data-cat="${category}"]`)
+    ?.classList.add('active');
 }
 
 function faq(button) {
   const item = button.closest('.faqitem');
   if (!item) return;
+
   item.classList.toggle('open');
+
   const icon = button.querySelector('span');
-  if (icon) icon.textContent = item.classList.contains('open') ? '⌃' : '⌄';
+
+  if (icon) {
+    icon.textContent = item.classList.contains('open') ? '⌃' : '⌄';
+  }
 }
