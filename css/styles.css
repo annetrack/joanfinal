@@ -3302,3 +3302,28 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
     flex-basis: 32px !important;
   }
 }
+
+
+
+
+
+/* HEADER LOGO */
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.site-logo-mark {
+  display: block;
+  width: 40px !important;
+  height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  object-fit: contain;
+}
+
+
+
