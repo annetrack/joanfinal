@@ -2925,3 +2925,9 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
     font-size: 14px;
   }
 }
+
+
+/* MARQUEE SPEED ONLY */
+#proof .track {
+  animation-duration: 100s !important;
+}
