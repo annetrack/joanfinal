@@ -3261,3 +3261,17 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
   max-height: 40px !important;
   object-fit: contain;
 }
+
+
+
+/* =========================
+   FOOTER LOGO — SMALLER
+   ========================= */
+
+.footer-brand-logo {
+  display: block;
+  width: 120px !important;
+  height: auto !important;
+  max-width: 120px !important;
+  object-fit: contain;
+}
