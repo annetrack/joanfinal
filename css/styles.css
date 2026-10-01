@@ -3243,58 +3243,62 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
 
 
 /* =========================================================
-   PROOF NOTE — MATCH DETAIL STYLE
+   PROOF NOTE — MATCH .DETAIL
    ========================================================= */
 
 .proof-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
 
-  margin: 14px auto 0;
+  margin: 14px auto 0 !important;
+  width: 100% !important;
 
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-align: center;
+  color: var(--muted) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  line-height: 1.4 !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
 }
 
-/* Left + right decorative lines */
+/* Decorative lines */
 .proof-note::before,
 .proof-note::after {
-  content: "";
+  content: "" !important;
+  display: block !important;
 
-  width: 54px;
-  height: 1px;
+  width: 54px !important;
+  height: 1px !important;
+  flex: 0 0 54px !important;
 
   background: linear-gradient(
     90deg,
     transparent,
     rgba(167, 139, 250, 0.55)
-  );
+  ) !important;
 }
 
-/* Reverse the gradient for the right line */
 .proof-note::after {
   background: linear-gradient(
     90deg,
     rgba(167, 139, 250, 0.55),
     transparent
-  );
+  ) !important;
 }
 
 /* Mobile */
 @media (max-width: 640px) {
   .proof-note {
-    gap: 10px;
-    font-size: 10px;
+    gap: 10px !important;
+    font-size: 10px !important;
   }
 
   .proof-note::before,
   .proof-note::after {
-    width: 32px;
+    width: 32px !important;
+    flex-basis: 32px !important;
   }
 }
