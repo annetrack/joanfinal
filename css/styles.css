@@ -3302,30 +3302,3 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
     flex-basis: 32px !important;
   }
 }
-
-
-
-
-
-
-/* =========================================================
-   HEADER LOGO — SMALL CORNER LOGO
-   ========================================================= */
-
-.site-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-}
-
-.site-logo-mark {
-  display: block;
-  width: 36px !important;
-  height: 36px !important;
-  max-width: 36px !important;
-  max-height: 36px !important;
-  object-fit: contain;
-}
