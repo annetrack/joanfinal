@@ -1,6 +1,5 @@
-/* ============================================================================
-  CREATED FOR VOICE WORK — CLEAN RESPONSIVE STYLESHEET created by Digitally Anne  https://www.michelleannalopez.com/
-  
+ /* ============================================================================
+   VOICE WORK — CLEAN RESPONSIVE STYLESHEET
    ---------------------------------------------------------------------------
    Purpose:
    - Keep the existing Voice Work visual direction.
@@ -516,7 +515,7 @@ nav {
 }
 
 .detail-line {
-  width: 100px;
+  width: 120px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(177,201,219,.4));
 }
@@ -2841,79 +2840,88 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
 }
 
 
-
-
-
-/* =========================================================
-   FINAL PROOF MARQUEE + PLATFORM LOGO FIX - SEP 30
-   ========================================================= */
-
-/* SLOWER LEFT → RIGHT MARQUEE */
-#proof .track {
-  animation-duration: 45s !important;
+/* ==========================================================================
+   TESTIMONIAL HIGHLIGHTS — SCANNABLE PROOF + POPPING CLIENT ROLES
+   ========================================================================== */
+.testimonials .quotes {
+  gap: 14px;
 }
 
-/* CENTER THE 3 PLATFORM LOGOS */
-#proof .platform-links {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 14px !important;
-  width: 100% !important;
-  padding: 0 16px !important;
-  box-sizing: border-box !important;
-  flex-wrap: nowrap !important;
+.testimonials .quote {
+  padding: 27px 26px 25px;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
-/* Prevent the mobile CSS from stretching the links */
-#proof .platform-links a {
-  flex: 0 0 32px !important;
-  width: 32px !important;
-  height: 32px !important;
-  min-height: 32px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+.testimonials .quote:hover {
+  transform: translateY(-3px);
+  border-color: rgba(167,139,250,.34);
+  box-shadow: 0 22px 55px rgba(4,20,36,.26), 0 0 30px rgba(124,58,237,.07);
 }
 
-/* Make the actual SVG logos fit neatly */
-#proof .platform-links svg {
-  width: 18px !important;
-  height: 18px !important;
-  display: block !important;
+.testimonials .stars {
+  margin-bottom: 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
 }
 
-
-
-
-/* =========================================
-   PREMIUM VIOLET AUDIO FLASHLIGHT
-   ========================================= */
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      circle 300px at var(--mx, 50%) var(--my, 30%),
-      rgba(167, 139, 250, 0.22) 0%,
-      rgba(139, 92, 246, 0.14) 20%,
-      rgba(109, 76, 190, 0.08) 38%,
-      rgba(76, 29, 149, 0.035) 55%,
-      transparent 75%
-    );
-
-  mix-blend-mode: screen;
-  opacity: 0;
-  transition: opacity 0.25s ease;
+.quote-highlight {
+  margin: 0 0 13px;
+  padding-left: 13px;
+  border-left: 2px solid rgba(167,139,250,.85);
+  color: #f8fafc;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: -.015em;
 }
 
-body:hover::after {
-  opacity: 1;
+.testimonials .quote p {
+  margin-bottom: 20px;
+  color: #c4ced9;
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.testimonials .quote b {
+  display: block;
+  margin-bottom: 6px;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.testimonials .quote .quote-role {
+  display: inline-block;
+  margin-top: 0;
+  padding: 4px 9px;
+  border: 1px solid rgba(167,139,250,.22);
+  border-radius: 999px;
+  background: rgba(124,58,237,.08);
+  color: #b9a7ff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: .02em;
+}
+
+@media (max-width: 900px) {
+  .quote-highlight {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials .quote {
+    padding: 23px 21px;
+  }
+
+  .quote-highlight {
+    font-size: 17px;
+  }
+
+  .testimonials .quote p {
+    font-size: 14px;
+  }
 }
