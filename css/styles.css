@@ -3275,3 +3275,11 @@ ls -lh /mnt/data/voice-work-final-client-polish.zip
   max-width: 120px !important;
   object-fit: contain;
 }
+
+
+
+#problem .ey {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
