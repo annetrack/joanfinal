@@ -2133,7 +2133,7 @@ footer {
   width: max-content;
   display: flex;
   align-items: stretch;
-  animation: voicework-marquee-right 100s linear infinite;
+  animation: voicework-marquee-right 80s linear infinite;
 }
 
 .set {
